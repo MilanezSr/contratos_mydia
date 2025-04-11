@@ -46,6 +46,11 @@ class ContratoData(BaseModel):
     data_contrato: str
     nome_testemunha_contratante: str
     nome_testemunha_contratada: str
+    rg_testemunha_contratante: str
+    rg_testemunha_contratada: str
+    entregas_detalhadas: str
+    equipe_detalhada: str
+    captacao_detalhada: str
 
 # Rota principal para gerar o contrato em PDF
 @app.post(

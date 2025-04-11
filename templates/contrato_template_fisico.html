@@ -5,73 +5,124 @@
     <title>Contrato de Prestação de Serviços</title>
     <style>
         body { font-family: Arial, sans-serif; line-height: 1.6; font-size: 14px; }
-        h1 { text-align: center; text-transform: uppercase; font-size: 16px; }
+        h1 {
+            text-align: center;
+            font-size: 22px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+        h2 {
+            font-size: 16px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+        h3 {
+            font-size: 14px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
         p, li { text-align: justify; }
+        strong { font-weight: bold; }
     </style>
 </head>
 <body>
-    <h1>CONTRATO DE PRESTAÇÃO DE SERVIÇOS DE FILMAGEM E FOTOGRAFIA</h1>
+    <h1><strong>Contrato de Prestação de Serviços de Filmagem e Fotografia</strong></h1>
+
     <p>
-        CONTRATANTE: {{ data.contratante_nome }}, pessoa física, residente no endereço {{ data.contratante_endereco }}.
+        <strong>CONTRATANTE:</strong> {{ data.contratante_nome }}, pessoa física, CPF nº {{ data.contratante_cnpj }}, residente em {{ data.contratante_endereco }}.
     </p>
     <p>
-        CONTRATADA: {{ data.contratada_nome }}, pessoa jurídica de direito privado,
+        <strong>CONTRATADA:</strong> {{ data.contratada_nome }}, pessoa jurídica de direito privado,
         inscrita no CNPJ nº {{ data.contratada_cnpj }}, com sede à {{ data.contratada_endereco }}.
     </p>
 
-    <p>Decidem as partes celebrar o presente CONTRATO DE PRESTAÇÃO DE SERVIÇOS DE FILMAGEM E FOTOGRAFIA, que se regerá pelas cláusulas seguintes:</p>
+    <p>
+        Decidem as partes, na melhor forma de direito, celebrar o presente <strong>CONTRATO DE PRESTAÇÃO DE SERVIÇOS DE FILMAGEM E FOTOGRAFIA</strong>,
+        que reger-se-á mediante as cláusulas e condições adiante estipuladas.
+    </p>
 
-    <h2>CLÁUSULA PRIMEIRA – DO OBJETO</h2>
-    <p>1.1 - O presente contrato tem por objeto a prestação de serviços profissionais especializados em fotografia e filmagem pela CONTRATADA, conforme descrição:</p>
-    <p>1.2 - {{ data.descricao_servico }}</p>
+    <h2>Cláusula Primeira – Do Objeto</h2>
+    <p>
+        1.1 - O presente contrato tem por objeto a prestação de serviços profissionais especializados em fotografia e filmagem,
+        por parte da CONTRATADA de acordo com os termos e condições detalhados abaixo:
+    </p>
+    <p>
+        1.2 - {{ data.descricao_servico }}
+    </p>
+    <p>
+        1.3 - {{ data.servico_detalhado }}
+    </p>
 
-    <h2>CLÁUSULA SEGUNDA - OBRIGAÇÕES DO CONTRATANTE</h2>
+    <h3>A) Entregas</h3>
+    <p>{{ data.entregas_detalhadas }}</p>
+
+    <h3>B) Equipe</h3>
+    <p>{{ data.equipe_detalhada }}</p>
+
+    <h3>C) Captação</h3>
+    <p>{{ data.captacao_detalhada }}</p>
+
+    <h2>Cláusula Segunda - Obrigações do Contratante</h2>
     <ul>
-        <li>Prestar informações claras e avisar com 20 dias de antecedência sobre gravações.</li>
-        <li>Efetuar pagamentos nas datas ajustadas.</li>
-        <li>Solicitar alteração em até 5 dias após entrega. Após isso, R$50,00 por lista.</li>
-        <li>Responsável por danos a equipamentos ou à equipe causados por terceiros.</li>
+        <li><strong>2.1</strong> - Prestar à CONTRATADA informações com clareza e avisar com até 20 dias de antecedência sobre gravações.</li>
+        <li><strong>2.2</strong> - Efetuar os pagamentos nas datas ajustadas.</li>
+        <li><strong>2.3</strong> - A CONTRATANTE tem até 5 dias para solicitar 01 (uma) lista de alterações. Após isso, será considerado aprovado. Alterações extras serão cobradas à parte (R$ 50,00 cada).</li>
+        <li><strong>2.4</strong> - Responder por danos a equipamentos ou à equipe da CONTRATADA causados por convidados ou fornecedores.</li>
     </ul>
 
-    <h2>CLÁUSULA TERCEIRA - OBRIGAÇÕES DA CONTRATADA</h2>
+    <h2>Cláusula Terceira - Obrigações da Contratada</h2>
     <ul>
-        <li>Prestar os serviços conforme especificado.</li>
-        <li>Manter sigilo das informações da CONTRATANTE.</li>
-        <li>Responsável por tributos e obrigações trabalhistas da própria equipe.</li>
-        <li>Entregar materiais editados em até 5 dias úteis.</li>
+        <li><strong>3.1</strong> - Prestar os serviços conforme a cláusula primeira.</li>
+        <li><strong>3.2</strong> - Manter sigilo das informações, mesmo após o término do contrato, conforme a LGPD.</li>
+        <li><strong>3.3</strong> - Responsabilizar-se por obrigações trabalhistas e tributárias de seus prestadores.</li>
+        <li><strong>3.4</strong> - Entregar os materiais editados em até 5 dias úteis.</li>
     </ul>
 
-    <h2>CLÁUSULA QUARTA – DO PREÇO E DAS CONDIÇÕES DE PAGAMENTO</h2>
-    <p>4.1 - Valor dos serviços: R$ {{ data.valor_servico }}.</p>
+    <h2>Cláusula Quarta – Do Preço e das Condições de Pagamento</h2>
+    <p><strong>4.1</strong> - Valor do serviço: R$ {{ data.valor_servico }}</p>
     {% if data.tem_gastos_extras %}
-    <p>4.2 - Gastos adicionais: {{ data.gastos_detalhados }}.</p>
+    <p><strong>4.2</strong> - Gastos adicionais: {{ data.gastos_detalhados }}</p>
     {% endif %}
-    <p>4.3 - Valor total: R$ {{ data.valor_total }}.</p>
-    <p>4.4 - Pagamento via PIX (CNPJ {{ data.contratada_cnpj }}), Banco NU Pagamentos.</p>
+    <p><strong>4.3</strong> - Valor total: R$ {{ data.valor_total }}</p>
+    <p><strong>4.4</strong> - Pagamento via PIX (CNPJ {{ data.contratada_cnpj }}), Banco NU Pagamentos.</p>
 
-    <h2>CLÁUSULA QUINTA – DA RESCISÃO E INADIMPLEMENTO</h2>
+    <h2>Cláusula Quinta – Da Rescisão e Inadimplemento</h2>
     <ul>
-        <li>Rescisão por qualquer parte com 30 dias de antecedência.</li>
-        <li>Multa de 20% do valor do contrato se não respeitar o prazo.</li>
-        <li>Multa de 2%, juros de 1% ao mês e correção em caso de inadimplemento.</li>
-        <li>Notificação imediata em caso de força maior.</li>
+        <li><strong>5.1</strong> - Rescisão pode ser feita por qualquer parte com 30 dias de antecedência.</li>
+        <li><strong>5.2</strong> - Multa de 20% do contrato se ultrapassado o aviso prévio.</li>
+        <li><strong>5.3</strong> - Multa de 2%, juros de 1% ao mês e correção por inadimplemento.</li>
+        <li><strong>5.4</strong> - Notificação imediata em caso de força maior ou impossibilidade de cumprimento.</li>
+        <li><strong>5.5</strong> - Vigência do contrato é de 30 dias a partir do primeiro dia de gravação.</li>
     </ul>
 
-    <h2>CLÁUSULA SEXTA – DA DIÁRIA EXTRA</h2>
-    <p>6.1 - Diária adicional de até 3h com 1 vídeo de até 60s: R$500,00 por diária.</p>
-
-    <h2>CLÁUSULA SÉTIMA – USO DE IMAGEM</h2>
-    <p>7.1 - O CONTRATANTE autoriza ou não o uso de sua imagem para fins de divulgação nas redes sociais e materiais promocionais.</p>
-
-    <h2>CLÁUSULA OITAVA – DISPOSIÇÕES GERAIS</h2>
-    <p>8.1 - Este contrato pode ser ajustado pelas partes antes da assinatura, conforme a legislação vigente.</p>
-
-    <h2>CLÁUSULA NONA – DO FORO</h2>
-    <p>9.1 - As partes elegem o foro da Comarca de Guarulhos – SP.</p>
+    <h2>Cláusula Sexta – Da Diária Extra</h2>
+    <p><strong>6.1</strong> - Diária extra de até 3h com 1 vídeo de até 60 segundos: R$ 500,00 cada.</p>
 
     <p>{{ data.data_contrato }}</p>
 
-    <p>_________________________________<br>{{ data.nome_testemunha_contratante }}</p>
-    <p>_________________________________<br>{{ data.nome_testemunha_contratada }}</p>
+    <p>
+        __________________________________<br>
+        {{ data.nome_testemunha_contratante }}<br>
+        RG nº {{ data.rg_testemunha_contratante }}
+    </p>
+
+    <p>
+        __________________________________<br>
+        {{ data.nome_testemunha_contratada }}<br>
+        RG nº {{ data.rg_testemunha_contratada }}
+    </p>
+
+    <p>
+        __________________________________<br>
+        CONTRATANTE: {{ data.contratante_nome }}<br>
+        CPF: {{ data.contratante_cnpj }}
+    </p>
+
+    <p>
+        __________________________________<br>
+        CONTRATADA: {{ data.contratada_nome }}<br>
+        CNPJ: {{ data.contratada_cnpj }}
+    </p>
+
 </body>
 </html>
