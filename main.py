@@ -23,7 +23,7 @@ os.makedirs(OUTPUT_DIR, exist_ok=True)
 env = Environment(loader=FileSystemLoader(TEMPLATE_DIR))
 
 class ContratoData(BaseModel):
-    tipo_contratante: str  # "juridica" ou "fisica"
+    tipo_contratante: str
     contratante_nome: str
     contratante_cnpj: str | None = None
     contratante_endereco: str
@@ -39,15 +39,10 @@ class ContratoData(BaseModel):
     nome_testemunha_contratante: str
     nome_testemunha_contratada: str
 
-@app.get("/")
-def status():
-    return {"message": "API do Gerador de Contrato está online."}
-
 @app.post("/gerar-contrato")
 def gerar_contrato(data: ContratoData):
     template_file = (
-        "contrato_template_juridico.html"
-        if data.tipo_contratante == "juridica"
+        "contrato_template_juridico.html" if data.tipo_contratante == "juridica"
         else "contrato_template_fisico.html"
     )
     template = env.get_template(template_file)
