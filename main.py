@@ -1,3 +1,4 @@
+from fastapi.middleware.cors import CORSMiddleware
 from fastapi import FastAPI
 from fastapi.responses import FileResponse, JSONResponse
 from pydantic import BaseModel
@@ -7,6 +8,14 @@ from weasyprint import HTML
 import os
 
 app = FastAPI()
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # Ou defina só seu domínio frontend depois
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 # Diretório de templates e saída
 TEMPLATE_DIR = "templates"
