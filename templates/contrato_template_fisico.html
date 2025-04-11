@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Contrato de Prestação de Serviços</title>
+    <style>
+        body { font-family: Arial, sans-serif; line-height: 1.6; font-size: 14px; }
+        h1 { text-align: center; text-transform: uppercase; font-size: 16px; }
+        p, li { text-align: justify; }
+    </style>
+</head>
+<body>
+    <h1>CONTRATO DE PRESTAÇÃO DE SERVIÇOS DE FILMAGEM E FOTOGRAFIA</h1>
+    <p>
+        CONTRATANTE: {{ data.contratante_nome }}, pessoa física, residente no endereço {{ data.contratante_endereco }}.
+    </p>
+    <p>
+        CONTRATADA: {{ data.contratada_nome }}, pessoa jurídica de direito privado,
+        inscrita no CNPJ nº {{ data.contratada_cnpj }}, com sede à {{ data.contratada_endereco }}.
+    </p>
+
+    <p>Decidem as partes celebrar o presente CONTRATO DE PRESTAÇÃO DE SERVIÇOS DE FILMAGEM E FOTOGRAFIA, que se regerá pelas cláusulas seguintes:</p>
+
+    <h2>CLÁUSULA PRIMEIRA – DO OBJETO</h2>
+    <p>1.1 - O presente contrato tem por objeto a prestação de serviços profissionais especializados em fotografia e filmagem pela CONTRATADA, conforme descrição:</p>
+    <p>1.2 - {{ data.descricao_servico }}</p>
+
+    <h2>CLÁUSULA SEGUNDA - OBRIGAÇÕES DO CONTRATANTE</h2>
+    <ul>
+        <li>Prestar informações claras e avisar com 20 dias de antecedência sobre gravações.</li>
+        <li>Efetuar pagamentos nas datas ajustadas.</li>
+        <li>Solicitar alteração em até 5 dias após entrega. Após isso, R$50,00 por lista.</li>
+        <li>Responsável por danos a equipamentos ou à equipe causados por terceiros.</li>
+    </ul>
+
+    <h2>CLÁUSULA TERCEIRA - OBRIGAÇÕES DA CONTRATADA</h2>
+    <ul>
+        <li>Prestar os serviços conforme especificado.</li>
+        <li>Manter sigilo das informações da CONTRATANTE.</li>
+        <li>Responsável por tributos e obrigações trabalhistas da própria equipe.</li>
+        <li>Entregar materiais editados em até 5 dias úteis.</li>
+    </ul>
+
+    <h2>CLÁUSULA QUARTA – DO PREÇO E DAS CONDIÇÕES DE PAGAMENTO</h2>
+    <p>4.1 - Valor dos serviços: R$ {{ data.valor_servico }}.</p>
+    {% if data.tem_gastos_extras %}
+    <p>4.2 - Gastos adicionais: {{ data.gastos_detalhados }}.</p>
+    {% endif %}
+    <p>4.3 - Valor total: R$ {{ data.valor_total }}.</p>
+    <p>4.4 - Pagamento via PIX (CNPJ {{ data.contratada_cnpj }}), Banco NU Pagamentos.</p>
+
+    <h2>CLÁUSULA QUINTA – DA RESCISÃO E INADIMPLEMENTO</h2>
+    <ul>
+        <li>Rescisão por qualquer parte com 30 dias de antecedência.</li>
+        <li>Multa de 20% do valor do contrato se não respeitar o prazo.</li>
+        <li>Multa de 2%, juros de 1% ao mês e correção em caso de inadimplemento.</li>
+        <li>Notificação imediata em caso de força maior.</li>
+    </ul>
+
+    <h2>CLÁUSULA SEXTA – DA DIÁRIA EXTRA</h2>
+    <p>6.1 - Diária adicional de até 3h com 1 vídeo de até 60s: R$500,00 por diária.</p>
+
+    <h2>CLÁUSULA SÉTIMA – USO DE IMAGEM</h2>
+    <p>7.1 - O CONTRATANTE autoriza ou não o uso de sua imagem para fins de divulgação nas redes sociais e materiais promocionais.</p>
+
+    <h2>CLÁUSULA OITAVA – DISPOSIÇÕES GERAIS</h2>
+    <p>8.1 - Este contrato pode ser ajustado pelas partes antes da assinatura, conforme a legislação vigente.</p>
+
+    <h2>CLÁUSULA NONA – DO FORO</h2>
+    <p>9.1 - As partes elegem o foro da Comarca de Guarulhos – SP.</p>
+
+    <p>{{ data.data_contrato }}</p>
+
+    <p>_________________________________<br>{{ data.nome_testemunha_contratante }}</p>
+    <p>_________________________________<br>{{ data.nome_testemunha_contratada }}</p>
+</body>
+</html>
